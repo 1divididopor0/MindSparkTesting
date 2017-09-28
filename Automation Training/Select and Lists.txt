@@ -1,0 +1,66 @@
+import java.net.URI;
+import java.net.URL;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.net.Urls;
+import org.openqa.selenium.remote.CommandExecutor;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class sample3 {
+
+	public static void main(String[] args) {
+		
+	
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Prabuddha Bajrachary\\Desktop\\Automation Training\\geckodriver.exe");
+		
+		WebDriver driver = new FirefoxDriver();
+		driver.get("file:\\C:\\Java_Training\\SeleniumTutorial\\WebContent\\NewFile.html");
+	
+		
+		List<WebElement> searchKey = driver.findElements(By.name("gender"));
+		searchKey.get(1).click();
+		
+		WebElement checkBox = driver.findElement(By.name("vehicle"));
+		checkBox.click();
+		checkBox.click();
+		
+		//hard way for select elements
+		WebElement select = driver.findElement(By.id("select1"));
+		
+		
+		List<WebElement> saabOption = select.findElements(By.tagName("option"));
+		saabOption.get(0).click();
+		
+		//easy way
+		Select selection = new Select(select);
+		selection.selectByVisibleText("Audi");
+		selection.selectByIndex(1);
+		selection.selectByValue("saab");
+		
+		//Hard way
+		
+		WebElement outTable = driver.findElement(By.tagName("table"));
+		WebElement inTable = outTable.findElement(By.tagName("table"));
+		List<WebElement> row = inTable.findElements(By.tagName("td"));
+		String x = (row.get(0)).getText();
+		System.out.println(x);
+		
+		//Easy way
+		WebElement row2 = driver.findElement(By.xpath("html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
+		System.out.println(row2.getText());
+		
+		
+	}
+	
+		
+		
+	}
+
+

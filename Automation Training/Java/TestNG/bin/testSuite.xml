@@ -1,0 +1,41 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name = "Test Suite1">
+	
+	<test name = "Test Suite Results">
+		<classes>
+			
+			<class name ="Test.NewTest">
+				<methods>
+					<include name="Test1"/>
+					<include name="Test2"/>
+				</methods>
+			</class>
+			
+			<class name ="Test.NewTest2">
+				<methods>
+					<exclude name="Test1"/>
+					<exclude name="Test2"/>
+				</methods>
+			</class>
+			
+		</classes>
+
+	</test>
+	
+	<test name = "P1 Test">
+		<groups>
+			<run>
+				<include name = "p1"/>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name = "Test.NewTest">
+			</class>
+			
+		</classes>	
+			
+	
+	</test>
+	
+</suite>

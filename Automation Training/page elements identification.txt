@@ -1,0 +1,54 @@
+package pb;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class trial {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Prabuddha Bajrachary\\Desktop\\Automation Training\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://docs.seleniumhq.org/");
+	
+		Thread.sleep(5000);
+		
+		WebElement search = driver.findElement(By.id("q"));
+		search.sendKeys("selenium");
+		
+		Thread.sleep(5000);
+		
+		WebElement searchButton = driver.findElement(By.name("q"));
+		searchButton.sendKeys(" test test");
+		
+		WebElement editThisPageLink = driver.findElement(By.linkText("edit this page"));
+		editThisPageLink.click();
+		
+		driver.get("http://www.google.com");
+
+		WebElement searchField = driver.findElement(By.className("gsfi"));
+		searchField.sendKeys("selenium");
+		
+		WebElement searchButton1 = driver.findElement(By.name("btnK"));
+		searchButton1.click();
+
+		driver.get("https://www.indeed.com/");
+		
+		List<WebElement> searc = driver.findElements(By.tagName("input"));
+		System.out.println(searc.size());
+		searc.get(0).sendKeys("hello");
+
+		WebElement searchButton2 = driver.findElement(By.partialLinkText("Resumes"));//,<a> tags are links
+		searchButton2.click();
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,64 @@
+XPATH SYNTAX
+
+//tagname[@attribute-name='value']
+//a[@href='http://www.google.com']
+//*[@href='http://www.google.com']
+
+Basic SYNTAX
+//*[@class='icl-Button icl-Button--primary icl-Button--md icl-Button--responsive'][@type="button"]
+[@type="button"]
+
+
+AND and OR
+
+//*[@class='icl-Button icl-Button--primary icl-Button--md icl-Button--responsive' or @type='button']
+//*[@class='icl-Button icl-Button--primary icl-Button--md icl-Button--responsive' and @type='button']
+
+
+Contains() starts-with()
+
+//*[starts-with(@class,'icl-Button')]
+//*[contains(@class,'Button')]
+
+//*[contains(text(),'where')]
+
+text()
+
+//a[contains(@href,'/salaries')][text()='Find Salaries']
+//a[contains(@href,'/salaries') or text()='Find Salaries']
+//*[text()='what']
+
+
+
+Following
+
+//*[@id='viewport']//following::tagname
+
+
+//*[@id='viewport']//following::input
+//*[@id='viewport']//following::input[@id='where']
+//*[@id='viewport']//following::a
+//*[@id='what_label_top']//following::input[1]
+//*[@id='what_label_top']//following::input[2]
+
+Preceddeing
+
+.//*[@id='promo_link']//preceding::a
+
+//*[@id='fj']//preceding::input
+//*[@id='fj']//preceding::input[1]
+//*[@id='fj']//preceding::input[2]
+
+
+
+
+
+Ansestor
+
+//*[@id='fj']//ancestor::div
+
+Absolute vs Relative
+//div[@class='content']/div
+//div[@class='content']//div
+
+https://www.w3schools.com/xml/xpath_axes.asp
